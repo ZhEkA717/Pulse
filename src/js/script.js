@@ -50,7 +50,7 @@ $(document).ready(function () {
                 if (item.getAttribute("data-tabs") === tabsSelector) {
                     item.classList.add('catalog__content_active');
                 }
-            })
+            });
         });
     });
 
@@ -59,32 +59,64 @@ $(document).ready(function () {
             e.preventDefault();
             e.target.parentNode.classList.toggle('catalog-item__content_active');
             e.target.parentNode.nextElementSibling.classList.toggle("catalog-item__list_active");
-        })
-    })
+        });
+    });
 
     document.querySelectorAll('.catalog-item__back').forEach(item => {
         item.addEventListener("click", (e) => {
             e.preventDefault();
             e.target.parentNode.classList.toggle('catalog-item__list_active');
             e.target.parentNode.previousElementSibling.classList.toggle("catalog-item__content_active");
-        })
-    })
+        });
+    });
 
 
     // Modal
-    $("[data-modal=consultation]").on("click",()=>{
+    $("[data-modal=consultation]").on("click", () => {
         $('.overlay, #consultation').fadeIn('slow');
     });
 
-    $(".modal__close").on("click",()=>{
+    $(".modal__close").on("click", () => {
         $('.overlay, #consultation,#thanks,#order').fadeOut("slow");
     });
 
-    $('.button_mini').each(function(i){
-        $(this).on("click",()=>{
+    $('.button_mini').each(function (i) {
+        $(this).on("click", () => {
             $("#order .modal__descr").text($('.catalog-item__subtitle').eq(i).text());
             $('.overlay, #order').fadeIn('slow');
         });
     });
+
+    function validateForms(form){
+        $(form).validate({
+            rules: {
+                name: {
+                    required: true,
+                    minlength: 10
+                },
+                phone: "required",
+                email: {
+                    required: true,
+                    email: true
+                }
+            },
+            messages: {
+                name: {
+                    required: "Пожалуйста, введите свое имя",
+                    minlength: jQuery.validator.format("Введите {0} символов!")
+                },
+                phone: "Пожалуйста, введите свой номер телефона",
+                email: {
+                    required: "Пожалуйста, введите свою почту",
+                    email: "Неправильно введен адрес почты, пример name@domain.com"
+                }
+            }
+        });
+    }
+
+    validateForms("#consultation-form");
+    validateForms("#order form");
+    validateForms("#consultation form");
+
 
 });
