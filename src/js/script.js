@@ -40,17 +40,23 @@ $(document).ready(function () {
 
     document.querySelectorAll(".catalog__tab").forEach(item => {
         item.addEventListener('click', (e) => {
-            document.querySelector(".catalog__tab_active").classList.remove("catalog__tab_active");
-            e.target.parentNode.classList.add('catalog__tab_active');
 
-            document.querySelector(".catalog__content_active").classList.remove("catalog__content_active");
-            const tabsSelector = document.querySelector(".catalog__tab_active").getAttribute("data-tabs");
+            if(e.target.classList.contains("catalog_li-div")){
+                document.querySelector(".catalog__tab_active").classList.remove("catalog__tab_active");
+                e.target.parentNode.classList.add('catalog__tab_active');
+    
+                document.querySelector(".catalog__content_active").classList.remove("catalog__content_active");
+                const tabsSelector = document.querySelector(".catalog__tab_active").getAttribute("data-tabs");
+                
+                document.querySelectorAll(".catalog__content").forEach(item => {
+                    if (item.getAttribute("data-tabs") === tabsSelector) {
+                        item.classList.add('catalog__content_active');
+                    }
+                });
+            }
 
-            document.querySelectorAll(".catalog__content").forEach(item => {
-                if (item.getAttribute("data-tabs") === tabsSelector) {
-                    item.classList.add('catalog__content_active');
-                }
-            });
+
+          
         });
     });
 

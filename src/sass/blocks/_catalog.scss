@@ -49,6 +49,13 @@
         &_active{
             display: flex;
         }
+        //--------------
+        //  на время
+        &[data-tabs="triatlon"],
+        &[data-tabs="runnig"]{
+            justify-content: space-around;
+        }
+        //--------------
     }
 
     &-item {
