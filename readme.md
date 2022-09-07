@@ -1,1 +1,1 @@
-https://zheka717.github.io/Pulse/src
+https://zheka717.github.io/Pulse/src/
