@@ -40,6 +40,15 @@
            }
         }
     }
+    .promo__icons{
+        flex-direction: column;
+        .promo__icon{
+            display: flex;
+            div{
+                margin-left: 50px;
+            }
+        }
+    }
 }
 
 @media (max-width: 575px){
@@ -63,4 +72,8 @@
             margin-top: 10px;
         }
     }
+    .promo__icons{
+        margin: 20px auto;
+    }
 }
+
