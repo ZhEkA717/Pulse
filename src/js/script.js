@@ -164,5 +164,9 @@ $(document).ready(function () {
         return false;
     });
 
+    document.querySelectorAll(".slick-dots button").forEach(item=>{
+        item.innerHTML = "";
+    });
+
 
 });
