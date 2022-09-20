@@ -86,6 +86,14 @@ $(document).ready(function () {
         $('.overlay, #consultation,#thanks,#order').fadeOut("slow");
     });
 
+    document.querySelector('.overlay').addEventListener("click",(e)=>{
+        e.stopPropagation();
+        if(e.target.classList.contains("overlay")){
+            $('.overlay, #consultation,#thanks,#order').fadeOut("slow"); 
+        }
+    })
+
+
     $('.button_mini').each(function (i) {
         $(this).on("click", () => {
             $("#order .modal__descr").text($('.catalog-item__subtitle').eq(i).text());
