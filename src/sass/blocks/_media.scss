@@ -40,15 +40,6 @@
            }
         }
     }
-    .promo__icons{
-        flex-direction: column;
-        .promo__icon{
-            display: flex;
-            div{
-                margin-left: 50px;
-            }
-        }
-    }
 }
 
 @media (max-width: 575px){
@@ -70,19 +61,6 @@
         }
         &__tab{
             margin-top: 10px;
-        }
-    }
-    .promo__icons{
-        margin: 20px auto;
-    }
-}
-@media (max-width: 575px){
-    .carousel{
-        &__inner{
-            width: 300px;
-           img{
-            width: 300px;
-           }
         }
     }
 }
